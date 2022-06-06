@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class test {
+public class Deleteall {
     public static void main(String[] args) {
         LinkedList<Integer> list = new LinkedList<Integer>();
         Scanner sc = new Scanner(System.in);
