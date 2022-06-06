@@ -75,6 +75,15 @@ public class basicLL {
         }
         seclast.next = null;
     }
+    public int size(){
+        int size = 0;
+        Node temp = head;
+        while(temp!=null){
+            size++;
+            temp = temp.next;
+        }
+        return size;
+    }
     public int getSize(){
         return size;
     }
@@ -84,6 +93,7 @@ public class basicLL {
         list.addFirst("Navaneeth");
         list.addFirst("I am");
         list.addFirst("hello");
+        System.out.println(list.size());
         list.printlist();
         list.addLast("P R");
         list.addLast(" B-Tech EPH");
