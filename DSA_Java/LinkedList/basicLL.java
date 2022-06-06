@@ -1,7 +1,9 @@
-import java.util.*;
-
 public class basicLL {
     Node head;
+    private int size;
+    basicLL(){
+        this.size = 0;
+    }
     // A node class
     class Node{
         String data;
@@ -9,6 +11,7 @@ public class basicLL {
         Node(String data){
             this.data = data;
             this.next = null;
+            size++;
         }
     }
     // Add element in inital position
@@ -45,6 +48,36 @@ public class basicLL {
         }
         System.out.println("null");
     }
+    public void deleteFirst(){
+        if(head==null){
+            System.out.println("List is empty");
+            return;
+        }
+        size--;
+        head = head.next;
+    }
+    public void deleteLast(){
+        if(head==null){
+            System.out.println("Linked list is empty");
+            return;
+        }
+
+        Node seclast = head;
+        Node last = head.next;
+        size--;
+        if(last==null){
+            head = null;
+            return;
+        }
+        while(last.next!=null){
+            last = last.next;
+            seclast = seclast.next;
+        }
+        seclast.next = null;
+    }
+    public int getSize(){
+        return size;
+    }
     public static void main(String[] args) {
         basicLL list = new basicLL();
 
@@ -55,5 +88,10 @@ public class basicLL {
         list.addLast("P R");
         list.addLast(" B-Tech EPH");
         list.printlist();
+        list.deleteFirst();
+        list.printlist();
+        list.deleteLast();
+        list.printlist();
+        System.out.println(list.getSize());
     }
 }
