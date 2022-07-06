@@ -34,16 +34,18 @@ public class ArrayPairSumDivisibility {
         }
         for (int i = 0; i < arr.length; i++) {
             int rem = (arr[i] %k + k)%k;
-            if(2*rem==k) {
-                if(hm.get(rem)%2==1){
+            if(rem == 0) {
+                if(hm.get(rem) % 2 == 1){
                     return false;
                 }
-            }else if(rem==0){
-                if(hm.get(rem)%2==1){
+            }else if(2 * rem == 0){
+                if(hm.get(rem) % 2 == 1){
                     return false;
                 }
             }else{
-                if(hm.get(k-rem) != hm.get(rem)){
+                int fkx = hm.getOrDefault(k-rem,0);
+                int fx = hm.get(rem);
+                if(fx != fkx){
                     return false;
                 }
             }
