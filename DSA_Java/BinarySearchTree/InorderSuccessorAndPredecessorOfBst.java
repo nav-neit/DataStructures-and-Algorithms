@@ -26,7 +26,21 @@ public class InorderSuccessorAndPredecessorOfBst {
             System.out.println("No successor");
     }
     public static void inorderpredecessor(Node root, int val){
-
+        if(root == null) return;
+        Node predecessor = null;
+        while(root!=null){
+            if(root.data>=val){
+                root = root.left;
+            }else{
+                predecessor = root;
+                root = root.right;
+            }
+        }
+        if(predecessor!=null){
+            System.out.println(predecessor.data);
+        }else{
+            System.out.println("Predecessor not found");
+        }
     }
     public static void main(String[] args) {
         Node root = new Node(5);
@@ -44,7 +58,7 @@ public class InorderSuccessorAndPredecessorOfBst {
         root.right.right.right = new Node(10);
 
         root.left.left.left.left = new Node(1);
-        int val = 10;
+        int val = 5;
         inordersuccessor(root, val);
         inorderpredecessor(root,val);
     }
